@@ -1,0 +1,31 @@
+{
+    "name": "yappkahowe/artisan",
+    "description": "Additional Laravel Artisan commands that I often needed.",
+    "keywords": ["laravel", "artisan", "command"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yapp Ka Howe",
+            "email": "yappkahowe@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "laravel/framework": "5.4.* || 5.5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "YappKaHowe\\Artisan\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "YappKaHowe\\Artisan\\ServiceProvider"
+            ]
+        }
+    }
+}
