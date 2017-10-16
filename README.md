@@ -22,7 +22,7 @@ Otherwise, register `YappKaHowe\Artisan\ServiceProvider::class` manually in your
 'providers' => [
     // Other service providers...
 
-    Yappkahowe\Artisan\ServiceProvider::class,
+    YappKaHowe\Artisan\ServiceProvider::class,
 ],
 ```
 
