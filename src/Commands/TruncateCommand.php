@@ -65,15 +65,24 @@ class TruncateCommand extends Command
     {
         \Schema::disableForeignKeyConstraints();
 
-        $tables = \DB::select('SHOW TABLES');
-
-        foreach ($tables as $tableObject) {
+        foreach ($this->getTables() as $tableObject) {
             $table = current(get_object_vars($tableObject));
 
             \DB::table($table)->truncate();
         }
 
         \Schema::enableForeignKeyConstraints();
+    }
+
+    protected function getTables()
+    {
+        $tables = \DB::select('SHOW TABLES');
+
+        if (($index = array_search('migrations', $table))) {
+            unset($tables[$index]);
+        }
+
+        return $tables;
     }
 
     /**
