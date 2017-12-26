@@ -78,8 +78,14 @@ class TruncateCommand extends Command
     {
         $tables = \DB::select('SHOW TABLES');
 
-        if (($index = array_search('migrations', $tables))) {
-            unset($tables[$index]);
+        foreach ($tables as $i => $tableObject) {
+            $table = current(get_object_vars($tableObject));
+
+            if ($table === 'migrations') {
+                unset($tables[$i]);
+
+                break;
+            }
         }
 
         return $tables;
