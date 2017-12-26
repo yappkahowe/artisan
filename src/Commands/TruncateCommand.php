@@ -78,7 +78,7 @@ class TruncateCommand extends Command
     {
         $tables = \DB::select('SHOW TABLES');
 
-        if (($index = array_search('migrations', $table))) {
+        if (($index = array_search('migrations', $tables))) {
             unset($tables[$index]);
         }
 
